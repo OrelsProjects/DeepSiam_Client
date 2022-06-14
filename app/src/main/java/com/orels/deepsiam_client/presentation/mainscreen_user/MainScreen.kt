@@ -23,6 +23,7 @@ fun MainScreenUser(
     val state = viewModel.state
     val isRefreshing by viewModel.isRefreshing.collectAsState()
 
+
     DisposableEffect(key1 = viewModel) {
         viewModel.onStart()
         onDispose { /* onStop */ }

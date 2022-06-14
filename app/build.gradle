@@ -8,6 +8,17 @@ plugins {
     id 'com.onesignal.androidsdk.onesignal-gradle-plugin'
 }
 
+kotlin {
+    sourceSets {
+        debug {
+            kotlin.srcDir("build/generated/ksp/debug/kotlin")
+        }
+        release {
+            kotlin.srcDir("build/generated/ksp/release/kotlin")
+        }
+    }
+}
+
 android {
     compileSdk 32
 
@@ -92,15 +103,14 @@ dependencies {
     // FlowRow
     implementation "com.google.accompanist:accompanist-flowlayout:0.24.8-beta"
 
+    // SwipeRefresh
+    implementation "com.google.accompanist:accompanist-swiperefresh:0.24.8-beta"
+
     // Navigation
     implementation 'io.github.raamcosta.compose-destinations:core:1.4.4-beta'
     ksp 'io.github.raamcosta.compose-destinations:ksp:1.4.4-beta'
 
     // OneSignal
     implementation 'com.onesignal:OneSignal:[4.0.0, 4.99.99]'
-
-    // Retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
 }
